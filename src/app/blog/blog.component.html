@@ -1,0 +1,26 @@
+<div class="dc-content">
+    <div fxLayoutWrap>
+            <div fxFlex="50" *ngFor="let post of blogPosts">
+                    <md-card class="dc-card">
+                        <md-card-header>
+                            <md-card-title>{{post.name}}</md-card-title>
+                            <md-card-subtitle>{{post.description}}</md-card-subtitle>
+                        </md-card-header>
+                        <md-card-content>
+                            <p><md-icon class="dc-icon-small">access_time</md-icon>{{post.date | date}} by {{post.user}}</p>
+                            <p></p>
+                        </md-card-content>
+                        <md-card-actions style="border-top:solid #e0e0e0 1px">
+                            <button md-button (click)="onSelect(post._id)">READ MORE</button>
+                        </md-card-actions>
+                    </md-card>
+            </div>
+    </div>
+</div>
+
+<span *ngIf="dataLoading">
+    <md-progress-bar mode="indeterminate" fxFlexLayout='row' style='position:absolute;bottom:0;'></md-progress-bar>
+</span>
+
+
+

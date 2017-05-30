@@ -1,0 +1,15 @@
+<button md-button routerLink='/blog'>BACK</button>
+<div *ngIf="blogPost != undefined">
+    <div class="container content">
+        <span class="dc-header">
+            <h3>{{blogPost.name}}</h3>
+            <div><md-icon class="dc-icon-medium">person</md-icon> {{blogPost.user}}</div>
+            <div><md-icon class="dc-icon-medium">access_time</md-icon> {{blogPost.date | date}}</div>
+        </span>
+        <div [innerHTML]="blogPost.content"></div>
+    </div>
+</div>
+
+<span *ngIf="dataLoading">
+    <md-progress-bar mode="indeterminate" fxFlexLayout='row' style='position:absolute;bottom:0;'></md-progress-bar>
+</span>

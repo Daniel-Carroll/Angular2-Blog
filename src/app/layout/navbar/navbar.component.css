@@ -1,0 +1,12 @@
+.example-fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.nav-button-row{
+    margin-left:20px;
+}
+
+.nav-shadow{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.24);
+    height:56px !important;
+}
