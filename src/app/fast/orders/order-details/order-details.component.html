@@ -1,0 +1,17 @@
+<div *ngIf="selectedOrder">
+    <div>
+        <div class="container content">
+            <span class="dc-header">
+                <h3>{{selectedOrder.externalOrderId}}</h3>
+                <div><md-icon class="dc-icon-medium">person</md-icon>{{selectedOrder.primaryCustomerFirstName}} {{selectedOrder.primaryCustomerLastName}}</div>
+                <div><md-icon class="dc-icon-medium">access_time</md-icon> {{selectedOrder.scheduledDeliveryTimestamp | date}}</div>
+            </span>
+        </div>
+    </div>
+
+    <package-list [packageList]="selectedOrder.shipmentList[0].packageList"></package-list>
+</div>
+
+<span *ngIf="dataLoading">
+    <md-progress-bar mode="indeterminate" fxFlexLayout='row' style='position:absolute;bottom:0;'></md-progress-bar>
+</span>

@@ -1,0 +1,69 @@
+<div class="mat-elevation-z5" style="margin:15px">
+  <md-table #table [dataSource]="dataSource" style="overflow:auto">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+     <!-- ID Column -->
+    <ng-container cdkColumnDef="pickupTime" >
+      <md-header-cell *cdkHeaderCellDef style="flex:2"> Time </md-header-cell>
+      <md-cell *cdkCellDef="let row" style="flex:2"> {{row.scheduledDeliveryTimestamp | date: 'short'}} </md-cell>
+    </ng-container>
+
+    <!-- ID Column -->
+    <ng-container cdkColumnDef="orderId" >
+      <md-header-cell *cdkHeaderCellDef style="flex:3"> Order ID </md-header-cell>
+      <md-cell *cdkCellDef="let row" style="flex:3"> {{row.externalOrderId}} </md-cell>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container cdkColumnDef="status">
+      <md-header-cell *cdkHeaderCellDef style="flex:2"> Status </md-header-cell>
+      <md-cell *cdkCellDef="let row" style="flex:2"> {{row.pickStatus}} </md-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container cdkColumnDef="ordered">
+      <md-header-cell *cdkHeaderCellDef> Ordered </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.totalOrderQuantity}} </md-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container cdkColumnDef="picked">
+      <md-header-cell *cdkHeaderCellDef>Picked</md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.pickedOrderQuantity}} </md-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="dry">
+      <md-header-cell *cdkHeaderCellDef>Dry</md-header-cell>
+      <md-cell *cdkCellDef="let row"> <div *ngFor="let picker of row.pickersForOrder"><div *ngIf="picker.pickZoneTypeCode == 2">{{picker.user}}</div></div> </md-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="refrigerated">
+      <md-header-cell *cdkHeaderCellDef>Refrigerated</md-header-cell>
+      <md-cell *cdkCellDef="let row"> <div *ngFor="let picker of row.pickersForOrder"><div *ngIf="picker.pickZoneTypeCode == 3">{{picker.user}}</div></div> </md-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="frozen">
+      <md-header-cell *cdkHeaderCellDef>Frozen</md-header-cell>
+      <md-cell *cdkCellDef="let row"> <div *ngFor="let picker of row.pickersForOrder"><div *ngIf="picker.pickZoneTypeCode == 4">{{picker.user}}</div></div> </md-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="bulk">
+      <md-header-cell *cdkHeaderCellDef>Bulk</md-header-cell>
+      <md-cell *cdkCellDef="let row"> <div *ngFor="let picker of row.pickersForOrder"><div *ngIf="picker.pickZoneTypeCode == 6">{{picker.user}}</div></div> </md-cell>
+    </ng-container>
+
+    <ng-container cdkColumnDef="hot">
+      <md-header-cell *cdkHeaderCellDef>Hot</md-header-cell>
+      <md-cell *cdkCellDef="let row"> <div *ngFor="let picker of row.pickersForOrder"><div *ngIf="picker.pickZoneTypeCode == 5">{{picker.user}}</div></div> </md-cell>
+    </ng-container>
+
+    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table>
+</div>
+
+<span *ngIf="dataLoading">
+    <md-progress-bar mode="indeterminate" fxFlexLayout='row' style='position:absolute;bottom:0;'></md-progress-bar>
+</span>

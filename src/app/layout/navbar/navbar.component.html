@@ -1,16 +1,18 @@
 <md-toolbar color="primary" class="nav-shadow">
-
   <span class="nav-button-row">
-    <button md-button routerLink="/"><md-icon style="position:relative;bottom:2px;">delete</md-icon> {{title}}</button>
-    <button md-button routerLink="/blog">BLOG</button>
-    <button md-button>REVIEWS</button>
+    <button md-icon-button (click)="toggleSidenav()">
+      <md-icon>menu</md-icon>
+    </button>
+    <button md-button routerLink="/" style="font-size:32px"><!--<img src="assets/logo.png" style="margin-right:10px;">-->{{title}}</button>
+    <button md-button routerLink="/blog"></button>
   </span>
   <!-- This fills the remaining space of the current row -->
   <span class="example-fill-remaining-space"></span>
 
-  <md-menu #appMenu="mdMenu">
-    <button md-menu-item routerLink="/editor"> Create Post </button>
+  <md-menu #appMenu="mdMenu" yPosition="below">
+    <button md-menu-item> Settings </button>
     <button md-menu-item> Help </button>
+    <button md-menu-item> Log Out </button>
   </md-menu>
   <button md-icon-button [mdMenuTriggerFor]="appMenu">
     <md-icon>more_vert</md-icon>

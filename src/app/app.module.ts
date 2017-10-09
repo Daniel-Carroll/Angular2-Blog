@@ -8,7 +8,10 @@ import { requestOptionsProvider }   from './default-request-options.service';
 
 import {LayoutModule} from './layout/index'
 import {HomeModule} from './home/home.module'
-import {BlogModule} from './blog/blog.module'
+import {FastModule} from './fast/fast.module'
+import {DashboardModule} from './dashboard/dashboard.module'
+
+import { SidenavService } from './layout/sidenav/sidenav.service';
 
 import {routes} from './app.routes'
 
@@ -24,7 +27,8 @@ import { AppComponent } from './app.component';
   imports: [
     RouterModule.forRoot(routes),
     HomeModule,
-    BlogModule,
+    FastModule,
+    DashboardModule,
     LayoutModule,
     BrowserModule,
     FormsModule,
@@ -32,7 +36,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     JsonpModule
   ],
-  providers: [requestOptionsProvider],
+  providers: [requestOptionsProvider, SidenavService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

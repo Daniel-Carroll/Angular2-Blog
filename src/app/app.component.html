@@ -1,4 +1,10 @@
-<div class="default">
-  <navbar></navbar>
-  <router-outlet></router-outlet>
-</div>
+<md-sidenav-container class="example-container">
+  <md-sidenav #sidenav mode="push">
+    <sidenav></sidenav>
+  </md-sidenav>
+  <div class="example-sidenav-content">
+    <navbar></navbar>
+    <router-outlet></router-outlet>
+  </div>
+
+</md-sidenav-container>

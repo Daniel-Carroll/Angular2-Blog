@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {SidenavService} from '../sidenav/sidenav.service'
 
 @Component({
   selector: 'navbar',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  title = 'GARBAGEPRESS';
+  title = 'FASTweb';
+
+  constructor(
+    private sidenavService: SidenavService
+  ) { }
+
+  /**
+   * Method to toggle application sidenav.
+   */
+  public toggleSidenav() {
+    this.sidenavService
+      .toggle()
+      .then(() => { });
+  }
 }
