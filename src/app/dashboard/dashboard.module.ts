@@ -1,5 +1,6 @@
 //Components
 import {OrderTrackerComponent} from './order-tracker/order-tracker.component';
+import {ProductivityComponent} from './productivity/productivity.component';
 import {DashboardComponent} from './dashboard.component';
 import { DashboardRoutes as routes } from './dashboard.routes';
 
@@ -13,7 +14,8 @@ import {LayoutModule} from '../layout/index';
 @NgModule({
     declarations:[
         DashboardComponent,
-        OrderTrackerComponent
+        OrderTrackerComponent,
+        ProductivityComponent
     ],
     imports: [
         RouterModule.forChild(routes),

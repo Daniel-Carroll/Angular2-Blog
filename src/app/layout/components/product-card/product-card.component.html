@@ -1,7 +1,12 @@
-<md-card style="min-height:150px;margin:10px">
+<md-card style="min-height:150px;margin:10px;align-items:center">
     <md-card-header>
         <md-card-title>{{product.productDescription}}</md-card-title>
         <md-card-subtitle>{{product.productId}}</md-card-subtitle>
+        <img md-card-sm-image [src]="getImageUrl(product.productId)">
     </md-card-header>
-    
+    <md-card-content>
+        <div>Ordered: {{product.orderedQuantity}}</div>
+        <div>Shipped: {{product.shippedQuantity}}</div>
+    </md-card-content>
+    <md-card-actions><button md-button>Details</button></md-card-actions>
 </md-card>

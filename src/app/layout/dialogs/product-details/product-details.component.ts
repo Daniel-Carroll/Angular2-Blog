@@ -3,12 +3,12 @@ import {ActivatedRoute} from '@angular/router';
 import {ImageService} from './../../../shared/services/utility/image.service';
 
 @Component({
-  selector: 'product-card',
-  templateUrl: './product-card.component.html',
+  selector: 'product-details',
+  templateUrl: './product-details.component.html',
   providers: [ImageService],
-  styleUrls: ['./product-card.component.css']
+  styleUrls: ['./product-details.component.css']
 })
-export class ProductCardComponent implements OnInit{
+export class ProductDetailsDialog implements OnInit{
 
     @Input() product;
     @Input() height;
@@ -20,6 +20,7 @@ export class ProductCardComponent implements OnInit{
   }
 
   getImageUrl(productId: any){
+    console.log("getting image...")
     return this.imageService.getImageUrl(productId);
   }
 

@@ -12,6 +12,7 @@ export class AppComponent {
   @ViewChild('sidenav') public sidenav: MdSidenav;
 
   title = 'My Angular 2 App';
+  
 
   public constructor(
     private sidenavService: SidenavService

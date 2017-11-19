@@ -19,6 +19,13 @@ export class DashboardService{
                 .catch(this.handleError)
     }
 
+    //returns Productivity Metrics for store level from server  
+    getProductivityByStore(storeId, startDate, endDate): Observable<any[]>{
+        return this.http.get(this.BaseUrl + "stores/" + storeId + "/startDate/" + startDate + "/endDate/" + endDate +  "/storeProductivityDashboard")
+                .map(this.extractData)
+                .catch(this.handleError)
+    }
+
     private extractData(res: Response) {
         let body = res.json();
         console.log(body);

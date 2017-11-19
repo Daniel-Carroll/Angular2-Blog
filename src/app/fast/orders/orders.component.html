@@ -1,6 +1,9 @@
-<div class="dc-content">
+<!-- <div class="dc-content">
     <div fxLayoutWrap>
-        <div fxFlex="25">
+        <div fxFlex="25" [fxFlex.md]="40" *ngIf="!hide" style="height:800px;background-color:white;">
+            <button md-icon-button color="accent" (click)="hide=true">
+                <md-icon>close</md-icon>
+            </button>
             <div>
                 <md-list style="height:800px; overflow:auto">
                     <h3 md-subheader>Orders</h3>
@@ -12,12 +15,41 @@
                 </md-list>
             </div>
         </div>
-        <div fxFlex="75">
+        <div fxFlex="75" [fxFlex.md]="60">
+                <button md-icon-button color="accent" (click)="hide=false">
+                    <md-icon>menu</md-icon>
+                </button>
            <order-details [orderId]="orderId"></order-details>
         </div>
     </div>
-</div>
+</div> -->
+<md-sidenav-container fxFlex >
+        <md-sidenav #sidenav mode="side" opened>
+            <md-tab-group color="accent">
+            <md-tab label="Active">
+            <md-nav-list style="margin-bottom:75px;">
+                    <md-list-item *ngFor="let order of orderList" (click)="onSelect(order.externalOrderId)">
+                        <md-icon md-list-icon>shopping_cart</md-icon>
+                        <h4 md-line>{{order.primaryCustomerFirstName}} {{order.primaryCustomerLastName}} - {{order.externalOrderId}}</h4>
+                        <p md-line><md-icon class="dc-icon-small">access_time</md-icon>{{order.scheduledDeliveryTimestamp | date}} </p>
+                    </md-list-item>
+                </md-nav-list>
+            </md-tab>
+            <md-tab label="Closed">
+                Closed Orders
+            </md-tab>
+            </md-tab-group>
+        </md-sidenav>
+        <div  style="margin-bottom:75px;">
+            <order-details  [orderId]="orderId"></order-details>
+        </div>
+      </md-sidenav-container> 
+
+      <button md-fab color="accent" class="sidebar-fab" (click)="sidenav.toggle()">
+         <md-icon>menu</md-icon>
+      </button>
+
 
 <span *ngIf="dataLoading">
     <md-progress-bar mode="indeterminate" fxFlexLayout='row' style='position:absolute;bottom:0;'></md-progress-bar>
-</span>
+</span> 

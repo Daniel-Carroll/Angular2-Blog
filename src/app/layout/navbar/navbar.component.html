@@ -3,17 +3,19 @@
     <button md-icon-button (click)="toggleSidenav()">
       <md-icon>menu</md-icon>
     </button>
-    <button md-button routerLink="/" style="font-size:32px"><!--<img src="assets/logo.png" style="margin-right:10px;">-->{{title}}</button>
-    <button md-button routerLink="/blog"></button>
+    <button fxHide fxShow.gt-xs md-button routerLink="/" style="font-size:32px"><!--<img src="assets/logo.png" style="margin-right:10px;">-->{{title}}</button>
   </span>
   <!-- This fills the remaining space of the current row -->
-  <span class="example-fill-remaining-space"></span>
+  <span fxFlex></span>
 
   <md-menu #appMenu="mdMenu" yPosition="below">
     <button md-menu-item> Settings </button>
     <button md-menu-item> Help </button>
     <button md-menu-item> Log Out </button>
   </md-menu>
+  <button md-icon-button>
+      <md-icon>store</md-icon>
+    </button>
   <button md-icon-button [mdMenuTriggerFor]="appMenu">
     <md-icon>more_vert</md-icon>
   </button>

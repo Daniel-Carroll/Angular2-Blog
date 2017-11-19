@@ -11,6 +11,7 @@ export class FastComponent implements OnInit{
      ngOnInit(){
 
     }
+    
 
     navLinks = [
       {path:'packages', label: 'Packages'},

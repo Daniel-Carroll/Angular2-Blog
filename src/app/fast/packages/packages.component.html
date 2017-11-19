@@ -1,1 +1,32 @@
-<div>packages</div>
+<md-sidenav-container fxFlex >
+    <md-sidenav #sidenav mode="side" opened>
+        <md-tab-group>
+        <md-tab label="Receive">
+        <md-nav-list style="margin-bottom:75px;">
+                <md-list-item *ngFor="let package of packageList" (click)="selectProductList(package)">
+                    <md-icon mat-list-icon>folder</md-icon>
+                    <h4 mat-line>{{package.packageId}}</h4>
+                    <p mat-line> {{package.packageStatusUpdateTimestamp | date}} </p>
+                </md-list-item>
+            </md-nav-list>
+        </md-tab>
+        <md-tab label="Shipments">
+            Shipments Here
+        </md-tab>
+        </md-tab-group>
+    </md-sidenav>
+    <div style="margin-bottom:75px;">
+        <div class="dc-content" >
+            <h3>Products in {{selectedPackage}}</h3>
+            <div fxLayoutWrap>
+                <div *ngFor="let product of selectedProductList" fxFlex="33" [fxFlex.xl]="25" [fxFlex.md]="50" [fxFlex.sm]="100" [fxFlex.xs]="100">
+                    <product-card [product]="product"></product-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</md-sidenav-container> 
+
+      <button md-fab color="accent" class="sidebar-fab" (click)="sidenav.toggle()">
+         <md-icon>menu</md-icon>
+      </button>

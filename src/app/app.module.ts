@@ -10,6 +10,7 @@ import {LayoutModule} from './layout/index'
 import {HomeModule} from './home/home.module'
 import {FastModule} from './fast/fast.module'
 import {DashboardModule} from './dashboard/dashboard.module'
+import {MaterialModule} from '@angular/material';
 
 import { SidenavService } from './layout/sidenav/sidenav.service';
 
@@ -32,6 +33,7 @@ import { AppComponent } from './app.component';
     LayoutModule,
     BrowserModule,
     FormsModule,
+    MaterialModule,
     HttpModule,
     BrowserAnimationsModule,
     JsonpModule

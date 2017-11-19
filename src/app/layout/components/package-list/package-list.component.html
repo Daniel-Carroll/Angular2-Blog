@@ -1,7 +1,7 @@
 <div *ngFor="let package of packageList">
-    <div>{{package.packageId}}</div>
+    <div style="padding:10px 50px;">Pkg: {{package.packageId}} <span>Location: {{package.storePutawayLocationId}}</span></div>
     <div fxLayoutWrap>
-        <div *ngFor="let product of package.productList" fxFlex="33">
+        <div *ngFor="let product of package.productList" fxFlex="33" [fxFlex.xl]="25" [fxFlex.md]="50" [fxFlex.sm]="100" [fxFlex.xs]="100">
             <product-card [product]="product" style=""></product-card>
         </div>
     </div>

@@ -1,3 +1,7 @@
 md-sidenav{
     width:250px;
 }
+
+.app-container{
+    height:100%
+}
