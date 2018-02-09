@@ -1,8 +1,8 @@
 <div *ngFor="let package of packageList">
-    <div style="padding:10px 50px;">Pkg: {{package.packageId}} <span>Location: {{package.storePutawayLocationId}}</span></div>
+    <div style="padding:10px;"><mat-icon class="dc-icon-medium">folder</mat-icon> {{package.packageId}} <div><mat-icon class="dc-icon-medium">room</mat-icon>Location: {{package.storePutawayLocationId}}</div></div>
     <div fxLayoutWrap>
         <div *ngFor="let product of package.productList" fxFlex="33" [fxFlex.xl]="25" [fxFlex.md]="50" [fxFlex.sm]="100" [fxFlex.xs]="100">
-            <product-card [product]="product" style=""></product-card>
+            <product-card [product]="product"></product-card>
         </div>
     </div>
 </div>

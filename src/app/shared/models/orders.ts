@@ -1,4 +1,5 @@
 import {Shipment} from './shipment';
+import {Package} from './package';
 
 /** Order Model
  * https://stackoverflow.com/questions/36150709/angular-2-observable-doesnt-map-to-model
@@ -20,7 +21,7 @@ export class Order {
     dnsReasonList: Array<any>;
     orderActions: Array<any>;
     shipmentList: Array<any>;
-    packageList: Array<any>;
+    packageList: Array<Package>;
 
     constructor(order: Order){
         this.externalOrderId = order.externalOrderId;
@@ -36,7 +37,7 @@ export class Order {
         this.dnsReasonList = order.dnsReasonList;
         this.orderActions = order.orderActions;
         if(order.shipmentList.length > 0){
-            this.packageList = order.shipmentList[0].packageList;
+            this.packageList = Package.returnPackages(order.shipmentList[0].packageList);
         }
     }
 

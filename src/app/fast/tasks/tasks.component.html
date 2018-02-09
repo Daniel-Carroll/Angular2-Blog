@@ -1,17 +1,17 @@
-<md-sidenav-container fxFlex >
-        <md-sidenav #sidenav mode="side" opened>
-            <md-tab-group color="accent">
-            <md-tab label="Retrieve">
-            <md-nav-list style="margin-bottom:75px;">
-                    <md-list-item *ngFor="let task of taskList" (click)="selectTask(task)">
-                        <md-icon mat-list-icon>transfer_within_a_station</md-icon>
+<mat-sidenav-container fxFlex >
+        <mat-sidenav #sidenav mode="side" opened>
+            <mat-tab-group color="accent">
+            <mat-tab label="Retrieve">
+            <mat-nav-list style="margin-bottom:75px;">
+                    <mat-list-item *ngFor="let task of taskList" (click)="selectTask(task)">
+                        <mat-icon mat-list-icon>transfer_within_a_station</mat-icon>
                         <h4 mat-line>{{task.order.primaryCustomerLastName}},  {{task.order.primaryCustomerFirstName}}</h4>
                         <p mat-line> {{task.order.externalOrderId}}  </p>
-                    </md-list-item>
-                </md-nav-list>
-            </md-tab>
-            </md-tab-group>
-        </md-sidenav>
+                    </mat-list-item>
+                </mat-nav-list>
+            </mat-tab>
+            </mat-tab-group>
+        </mat-sidenav>
         <div style="margin-bottom:75px;" class="dc-content" *ngIf="selectedTask">
                 Type: {{selectedTask.workAssignmentTypeDescription}} <br>
                 {{selectedTask.order.primaryCustomerLastName}}, {{selectedTask.order.primaryCustomerFirstName}}
@@ -20,8 +20,8 @@
                     <package-list [packageList]="selectedTask.orderDetails.packageList"></package-list>
                 </div>
         </div>
-    </md-sidenav-container> 
+    </mat-sidenav-container> 
     
-          <button md-fab color="accent" class="sidebar-fab" (click)="sidenav.toggle()">
-             <md-icon>menu</md-icon>
+          <button mat-fab color="accent" class="sidebar-fab" (click)="sidenav.toggle()">
+             <mat-icon>menu</mat-icon>
           </button>

@@ -1,20 +1,17 @@
-<md-sidenav-container fxFlex >
-    <md-sidenav #sidenav mode="side" opened>
-        <md-tab-group>
-        <md-tab label="Receive">
-        <md-nav-list style="margin-bottom:75px;">
-                <md-list-item *ngFor="let package of packageList" (click)="selectProductList(package)">
-                    <md-icon mat-list-icon>folder</md-icon>
+<mat-sidenav-container fxFlex >
+    <mat-sidenav #sidenav mode="side" opened>
+        <mat-tab-group color="accent" (selectChange)="onChangeEvent($event)">
+        <mat-tab label="Receive">
+        <mat-nav-list style="margin-bottom:75px;">
+                <mat-list-item *ngFor="let package of packageList" (click)="selectProductList(package)">
+                    <mat-icon mat-list-icon>folder</mat-icon>
                     <h4 mat-line>{{package.packageId}}</h4>
                     <p mat-line> {{package.packageStatusUpdateTimestamp | date}} </p>
-                </md-list-item>
-            </md-nav-list>
-        </md-tab>
-        <md-tab label="Shipments">
-            Shipments Here
-        </md-tab>
-        </md-tab-group>
-    </md-sidenav>
+                </mat-list-item>
+            </mat-nav-list>
+        </mat-tab>
+        </mat-tab-group>
+    </mat-sidenav>
     <div style="margin-bottom:75px;">
         <div class="dc-content" >
             <h3>Products in {{selectedPackage}}</h3>
@@ -25,8 +22,8 @@
             </div>
         </div>
     </div>
-</md-sidenav-container> 
+</mat-sidenav-container> 
 
-      <button md-fab color="accent" class="sidebar-fab" (click)="sidenav.toggle()">
-         <md-icon>menu</md-icon>
+      <button mat-fab color="accent" class="sidebar-fab" (click)="sidenav.toggle()">
+         <mat-icon>menu</mat-icon>
       </button>

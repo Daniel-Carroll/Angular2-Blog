@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MdSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material';
 import { SidenavService } from './layout/sidenav/sidenav.service';
 
 @Component({
@@ -9,9 +9,10 @@ import { SidenavService } from './layout/sidenav/sidenav.service';
 })
 export class AppComponent {
 
-  @ViewChild('sidenav') public sidenav: MdSidenav;
+  @ViewChild('sidenav') public sidenav: MatSidenav;
 
-  title = 'My Angular 2 App';
+  darkTheme = true;
+  defaultStore = "623";
   
 
   public constructor(
@@ -22,6 +23,14 @@ export class AppComponent {
     // Store sidenav to service
     this.sidenavService
       .setSidenav(this.sidenav);
+
+    window.localStorage.setItem("defaultStore", this.defaultStore);
+  }
+
+  isDarkTheme(darkTheme: boolean){
+      console.log("this.darkTheme = " + this.darkTheme);
+      console.log("darkTheme = " + darkTheme);
+      this.darkTheme = darkTheme;
   }
 
 }

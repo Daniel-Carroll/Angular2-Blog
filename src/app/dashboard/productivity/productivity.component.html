@@ -1,18 +1,16 @@
 
 <div fxLayoutWrap>
 
-<div fxFlex="50" *ngFor="let metric of productivityDashboard">
-        <md-card  style="min-height:150px;margin:10px;">
-                <md-card-header>
-                    <md-card-title>{{metric.metricName}}</md-card-title>
-                </md-card-header>
-                <md-card-content>
-                    <div><span *ngIf="metric.hourlyRate!='NaN'">{{metric.hourlyRate}}</span>
-                         <span *ngIf="metric.hourlyRate=='NaN'">0</span> per hour</div>
+<div fxFlex="50" fxFlex.xs="100" *ngFor="let metric of productivityDashboard" >
+        <mat-card  color="accent" style="margin:10px;text-align:center" >
+                <h2><mat-icon>play_for_work</mat-icon> {{metric.metricName}}</h2>
+                <mat-card-content>
+                    <h3><span *ngIf="metric.hourlyRate!='NaN'">{{metric.hourlyRate}}</span>
+                         <span *ngIf="metric.hourlyRate=='NaN'">0</span> per hour</h3>
                     <div>{{metric.totalQuantity}} total</div>
-                </md-card-content>
-                <md-card-actions><button md-button>Details</button></md-card-actions>
-        </md-card>
+                    <div>{{metric.totalTime}} hours</div>
+                </mat-card-content>
+        </mat-card>
 </div>
 
 

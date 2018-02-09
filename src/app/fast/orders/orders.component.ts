@@ -17,7 +17,7 @@ export class OrderComponent implements OnInit{
   errorMessage: string;
   orderId: string;
   orderList:Order[];
-  currentStore: number;
+  currentStore: String;
   sidenavOpen: boolean;
 
 
@@ -26,11 +26,11 @@ export class OrderComponent implements OnInit{
               private route:ActivatedRoute){
                 //the defacto way to retrive a parameter from a route
                 this.orderId = route.snapshot.params['id']
+                this.currentStore = window.localStorage.getItem("defaultStore");
               }
 
   ngOnInit(){
     this.sidenavOpen = true;
-    this.currentStore = 623;
     this.getOrders(this.currentStore);
   }
 

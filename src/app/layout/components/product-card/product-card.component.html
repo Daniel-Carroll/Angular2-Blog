@@ -1,12 +1,23 @@
-<md-card style="min-height:150px;margin:10px;align-items:center">
-    <md-card-header>
-        <md-card-title>{{product.productDescription}}</md-card-title>
-        <md-card-subtitle>{{product.productId}}</md-card-subtitle>
-        <img md-card-sm-image [src]="getImageUrl(product.productId)">
-    </md-card-header>
-    <md-card-content>
+<mat-card style="min-height:150px;margin:10px;align-items:center">
+    <mat-card-header>
+        <mat-card-title>{{product.productDescription}}</mat-card-title>
+        <mat-card-subtitle>{{product.productId}}</mat-card-subtitle>
+        <img mat-card-sm-image [src]="getImageUrl(product.productId)" style="float:right">
+    </mat-card-header>
+    <mat-card-content>
         <div>Ordered: {{product.orderedQuantity}}</div>
         <div>Shipped: {{product.shippedQuantity}}</div>
-    </md-card-content>
-    <md-card-actions><button md-button>Details</button></md-card-actions>
-</md-card>
+        <div>Shorted: {{product.shortQuantity}}</div>
+    </mat-card-content>
+    <mat-card-actions><button mat-button>Details</button> <button mat-icon-button style="float:right" [matMenuTriggerFor]="productActionMenu"><mat-icon>more_vert</mat-icon></button></mat-card-actions>
+
+
+</mat-card>
+
+<mat-menu #productActionMenu="matMenu">
+        <button mat-menu-item (click)="productAction(damageAction)">Damage</button>
+        <button mat-menu-item>Lost</button>
+        <button mat-menu-item>Abandon</button>
+    </mat-menu>
+
+

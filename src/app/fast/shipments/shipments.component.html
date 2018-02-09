@@ -1,0 +1,31 @@
+<mat-sidenav-container fxFlex >
+  <mat-sidenav #sidenav mode="side" opened>
+      <mat-tab-group color="accent">
+      <mat-tab label="Shipments">
+      <mat-nav-list style="margin-bottom:75px;">
+        <div *ngFor="let shipment of shipmentList">
+              <h3 mat-subheader><span>{{shipment.shipmentId}}</span><span style="float:right">{{shipment.shipmentTimestamp | date}}</span></h3>
+              <mat-list-item *ngFor="let pallet of shipment.palletList" (click)="getPalletDetails(pallet)">
+                  <mat-icon *ngIf="pallet.palletStatusCode=='2'" mat-list-icon>check_circle</mat-icon>
+                  <mat-icon *ngIf="pallet.palletStatusCode=='1'" mat-list-icon>radio_button_unchecked</mat-icon>
+                  <h4 mat-line>{{pallet.palletId}}</h4>
+                  <p mat-line> {{pallet.lastUpdateTimestamp | date}} </p>
+              </mat-list-item>
+        </div>
+          </mat-nav-list>
+      </mat-tab>
+      </mat-tab-group>
+  </mat-sidenav>
+  <div style="margin-bottom:75px;">
+      <div class="dc-content" >
+          <h3></h3>
+          <div>
+                  <package-list [packageList]="toteList"></package-list>
+          </div>
+      </div>
+  </div>
+</mat-sidenav-container> 
+
+    <button mat-fab color="accent" class="sidebar-fab" (click)="sidenav.toggle()">
+       <mat-icon>menu</mat-icon>
+    </button>

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {Package} from './../../../shared/models/package';
+import {Product} from './../../../shared/models/product';
 
 import {ProductCardComponent} from './../product-card/product-card.component'
 
@@ -10,10 +12,11 @@ import {ProductCardComponent} from './../product-card/product-card.component'
 })
 export class PackageListComponent implements OnInit{
 
-    @Input() packageList;
+    @Input() packageList: Package;
+
 
   ngOnInit(){
-    
+
   }
 
 }

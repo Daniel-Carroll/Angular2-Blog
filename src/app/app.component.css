@@ -1,7 +1,7 @@
-md-sidenav{
+mat-sidenav{
     width:250px;
 }
 
 .app-container{
-    height:100%
+    height:100%;
 }

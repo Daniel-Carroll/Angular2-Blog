@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {SidenavService} from '../sidenav/sidenav.service'
 
 @Component({
@@ -8,6 +8,8 @@ import {SidenavService} from '../sidenav/sidenav.service'
 })
 export class NavbarComponent {
   title = 'FASTweb';
+  @Input() darkTheme: boolean;
+  @Output() isDarkTheme = new EventEmitter<boolean>();
 
   constructor(
     private sidenavService: SidenavService
@@ -20,5 +22,12 @@ export class NavbarComponent {
     this.sidenavService
       .toggle()
       .then(() => { });
+  }
+
+  public toggleTheme(darkTheme: boolean){
+      console.log("Emitting: " + darkTheme)
+      darkTheme ? darkTheme = false : darkTheme = true;
+      console.log(darkTheme);
+      this.isDarkTheme.emit(darkTheme);
   }
 }

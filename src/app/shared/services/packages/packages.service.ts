@@ -1,6 +1,8 @@
 import { Injectable }              from '@angular/core';
 import { Http, Response }          from '@angular/http';
+import { HttpClient }          from '@angular/common/http';
 import { Headers, RequestOptions } from '@angular/http';
+import { AppConstants} from './../../../app.constants';
 import {Package} from './../../models/package';
 
 import { Observable } from 'rxjs/Observable';
@@ -20,6 +22,33 @@ export class PackageService{
                 .toPromise()
                 .then(response => Package.returnPackages(response.json()))
                 .catch(this.handleError)
+    }
+
+    sendPackageAction(pkg: Package, packageAction: String): Promise<Package>{
+        let headers = new Headers(AppConstants.CONFIG);
+        let options = new RequestOptions({headers: headers})
+        return this.http.post(this.BaseUrl + "packages/" + pkg + "/action/" + packageAction, options)
+            .toPromise()
+            .then(response => new Package(response.json()))
+            .catch(this.handleError)
+    }
+
+    getPackageFromID(packageId: String, moduleNumber: String): Promise<Package>{
+        let headers = new Headers(AppConstants.CONFIG)
+        let options = new RequestOptions({headers: headers})
+        return this.http.get(this.BaseUrl + "packages/" + packageId + "/module/" + moduleNumber, options)
+            .toPromise()
+            .then(response => new Package(response.json()))
+            .catch(this.handleError)
+    }
+
+    retrievePackage(pkg: Package, storeId): Promise<Package>{
+        let headers = new Headers(AppConstants.CONFIG);
+        let options = new RequestOptions({headers: headers})
+        return this.http.post(this.BaseUrl + "stores/" + storeId + "/packages", pkg, options)
+            .toPromise()
+            .then(response => new Package(response.json()))
+            .catch(this.handleError)
     }
 
   private handleError (error: any): Promise<any>{

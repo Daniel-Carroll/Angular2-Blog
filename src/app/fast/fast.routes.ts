@@ -3,13 +3,17 @@ import {OrderDetailsComponent} from './orders/order-details/order-details.compon
 import { PackageComponent } from './packages/packages.component';
 import { TaskComponent } from './tasks/tasks.component';
 import {FastComponent} from './fast.component';
+import { ShipmentsComponent } from './shipments/shipments.component';
+import {LoginComponent} from './../login/login.component'
 import {RouterModule, Routes} from '@angular/router'
 
 export const FastRoutes = [
-  { path: '', component: FastComponent, children: [
+
+  { path: 'fast', component: FastComponent, children: [
     { path: 'orders', component: OrderComponent},
     { path: 'tasks', component: TaskComponent},
-    {path:'packages', component: PackageComponent}
+    {path:'packages', component: PackageComponent},
+    {path: 'shipments', component: ShipmentsComponent }
   ] } 
   
 ];

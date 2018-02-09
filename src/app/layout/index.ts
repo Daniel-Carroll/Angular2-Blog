@@ -7,8 +7,8 @@ import {NavtabComponent} from './navtabs/navtabs.component';
 import {ProductCardComponent} from './components/product-card/product-card.component';
 import {PackageListComponent} from './components/package-list/package-list.component';
 
-import {MdButtonModule, MdCheckboxModule, MdToolbarModule, MdSidenavModule, MdListModule,
-        MdTabsModule, MdIconModule, MdCardModule, MdGridListModule, MdProgressBarModule, MdMenuModule, MdTableModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatSidenavModule, MatListModule,
+        MatTabsModule, MatIconModule, MatCardModule, MatGridListModule, MatProgressBarModule, MatMenuModule, MatTableModule, MatExpansionModule} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CommonModule} from '@angular/common';
@@ -19,13 +19,13 @@ import {CommonModule} from '@angular/common';
     ],
     imports: [
         RouterModule, CommonModule, 
-        MdButtonModule, MdCheckboxModule, MdToolbarModule, MdTabsModule, MdIconModule, MdCardModule, MdGridListModule, FlexLayoutModule, MdProgressBarModule,
-        MdMenuModule, MdSidenavModule, MdListModule, MdTableModule, CdkTableModule
+        MatButtonModule, MatCheckboxModule, MatToolbarModule, MatTabsModule, MatIconModule, MatCardModule, MatGridListModule, FlexLayoutModule, MatProgressBarModule,
+        MatMenuModule, MatSidenavModule, MatListModule, MatTableModule, MatExpansionModule, CdkTableModule
     ],
     exports: [
         NavbarComponent, SidenavComponent, NavtabComponent, PackageListComponent, ProductCardComponent,
-        MdButtonModule, MdCheckboxModule, MdToolbarModule, MdTabsModule,MdIconModule, MdCardModule, MdGridListModule, FlexLayoutModule, 
-        MdProgressBarModule, MdMenuModule, MdSidenavModule, MdListModule, MdTableModule, CdkTableModule
+        MatButtonModule, MatCheckboxModule, MatToolbarModule, MatTabsModule,MatIconModule, MatCardModule, MatGridListModule, FlexLayoutModule, 
+        MatProgressBarModule, MatMenuModule, MatSidenavModule, MatListModule, MatTableModule, MatExpansionModule, CdkTableModule
     ]
 })
 export class LayoutModule {}

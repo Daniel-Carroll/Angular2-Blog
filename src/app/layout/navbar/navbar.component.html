@@ -1,22 +1,23 @@
-<md-toolbar color="primary" class="nav-shadow">
+<mat-toolbar color="primary" class="nav-shadow">
   <span class="nav-button-row">
-    <button md-icon-button (click)="toggleSidenav()">
-      <md-icon>menu</md-icon>
+    <button mat-icon-button (click)="toggleSidenav()">
+      <mat-icon>menu</mat-icon>
     </button>
-    <button fxHide fxShow.gt-xs md-button routerLink="/" style="font-size:32px"><!--<img src="assets/logo.png" style="margin-right:10px;">-->{{title}}</button>
+    <button fxHide fxShow.gt-xs mat-button routerLink="/" style="font-size:32px"><!--<img src="assets/logo.png" style="margin-right:10px;">-->{{title}}</button>
   </span>
   <!-- This fills the remaining space of the current row -->
   <span fxFlex></span>
 
-  <md-menu #appMenu="mdMenu" yPosition="below">
-    <button md-menu-item> Settings </button>
-    <button md-menu-item> Help </button>
-    <button md-menu-item> Log Out </button>
-  </md-menu>
-  <button md-icon-button>
-      <md-icon>store</md-icon>
+  <mat-menu #appMenu="matMenu" yPosition="below">
+    <button mat-menu-item (click)="toggleTheme(darkTheme)">Toggle Theme</button>
+    <button mat-menu-item> Settings </button>
+    <button mat-menu-item> Help </button>
+    <button mat-menu-item> Log Out </button>
+  </mat-menu>
+  <button mat-icon-button>
+      <mat-icon>store</mat-icon>
     </button>
-  <button md-icon-button [mdMenuTriggerFor]="appMenu">
-    <md-icon>more_vert</md-icon>
+  <button mat-icon-button [matMenuTriggerFor]="appMenu">
+    <mat-icon>more_vert</mat-icon>
   </button>
-</md-toolbar>
+</mat-toolbar>

@@ -14,7 +14,7 @@ import { EditorRoutes as routes } from './editor.routes';
         QuillModule
     ],
     exports: [
-        
+        EditorComponent
     ]
 })
 export class EditorModule { }

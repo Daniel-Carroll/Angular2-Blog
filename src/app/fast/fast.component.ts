@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router'
+import {Router, ActivatedRoute} from '@angular/router'
 
 @Component({
   selector: 'fast',
@@ -8,6 +8,9 @@ import {Router} from '@angular/router'
 })
 export class FastComponent implements OnInit{
 
+    constructor(private router: Router, private route: ActivatedRoute){
+      router.navigate(['packages'], {relativeTo: route})
+    }
      ngOnInit(){
 
     }
@@ -15,6 +18,7 @@ export class FastComponent implements OnInit{
 
     navLinks = [
       {path:'packages', label: 'Packages'},
+      {path: 'shipments', label: 'Shipments'},
       {path:'orders', label: 'Orders'},
       {path:'tasks', label: 'Tasks'}
     ]

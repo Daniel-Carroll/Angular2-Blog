@@ -10,5 +10,5 @@ export class Shipment {
     paymentStatusDescription: string;
     fulfillmentModeCode: string;
     packageList: Array<Package>;
-   
+
   }

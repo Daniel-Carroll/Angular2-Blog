@@ -1,10 +1,10 @@
-<md-sidenav-container class="app-container">
-  <md-sidenav #sidenav mode="push">
+<mat-sidenav-container class="app-container" [class.dark-theme]="darkTheme" [class.dark-container]="darkTheme">
+  <mat-sidenav #sidenav mode="push">
     <sidenav></sidenav>
-  </md-sidenav>
-  <div class="example-sidenav-content" >
-    <navbar></navbar>
+  </mat-sidenav>
+  <div class="example-sidenav-content">
+    <navbar (isDarkTheme)="isDarkTheme($event)" [darkTheme]="darkTheme"></navbar>
     <router-outlet></router-outlet>
   </div>
 
-</md-sidenav-container>
+</mat-sidenav-container>

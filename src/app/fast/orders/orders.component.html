@@ -1,55 +1,55 @@
 <!-- <div class="dc-content">
     <div fxLayoutWrap>
-        <div fxFlex="25" [fxFlex.md]="40" *ngIf="!hide" style="height:800px;background-color:white;">
-            <button md-icon-button color="accent" (click)="hide=true">
-                <md-icon>close</md-icon>
+        <div fxFlex="25" [fxFlex.mat]="40" *ngIf="!hide" style="height:800px;background-color:white;">
+            <button mat-icon-button color="accent" (click)="hide=true">
+                <mat-icon>close</mat-icon>
             </button>
             <div>
-                <md-list style="height:800px; overflow:auto">
-                    <h3 md-subheader>Orders</h3>
-                    <md-list-item *ngFor="let order of orderList" (click)="onSelect(order.externalOrderId)">
-                        <md-icon md-list-icon>shopping_cart</md-icon>
-                        <h4 md-line>{{order.primaryCustomerFirstName}} {{order.primaryCustomerLastName}} - {{order.externalOrderId}}</h4>
-                        <p md-line><md-icon class="dc-icon-small">access_time</md-icon>{{order.scheduledDeliveryTimestamp | date}} </p>
-                    </md-list-item>
-                </md-list>
+                <mat-list style="height:800px; overflow:auto">
+                    <h3 mat-subheader>Orders</h3>
+                    <mat-list-item *ngFor="let order of orderList" (click)="onSelect(order.externalOrderId)">
+                        <mat-icon mat-list-icon>shopping_cart</mat-icon>
+                        <h4 mat-line>{{order.primaryCustomerFirstName}} {{order.primaryCustomerLastName}} - {{order.externalOrderId}}</h4>
+                        <p mat-line><mat-icon class="dc-icon-small">access_time</mat-icon>{{order.scheduledDeliveryTimestamp | date}} </p>
+                    </mat-list-item>
+                </mat-list>
             </div>
         </div>
-        <div fxFlex="75" [fxFlex.md]="60">
-                <button md-icon-button color="accent" (click)="hide=false">
-                    <md-icon>menu</md-icon>
+        <div fxFlex="75" [fxFlex.mat]="60">
+                <button mat-icon-button color="accent" (click)="hide=false">
+                    <mat-icon>menu</mat-icon>
                 </button>
            <order-details [orderId]="orderId"></order-details>
         </div>
     </div>
 </div> -->
-<md-sidenav-container fxFlex >
-        <md-sidenav #sidenav mode="side" opened>
-            <md-tab-group color="accent">
-            <md-tab label="Active">
-            <md-nav-list style="margin-bottom:75px;">
-                    <md-list-item *ngFor="let order of orderList" (click)="onSelect(order.externalOrderId)">
-                        <md-icon md-list-icon>shopping_cart</md-icon>
-                        <h4 md-line>{{order.primaryCustomerFirstName}} {{order.primaryCustomerLastName}} - {{order.externalOrderId}}</h4>
-                        <p md-line><md-icon class="dc-icon-small">access_time</md-icon>{{order.scheduledDeliveryTimestamp | date}} </p>
-                    </md-list-item>
-                </md-nav-list>
-            </md-tab>
-            <md-tab label="Closed">
+<mat-sidenav-container fxFlex >
+        <mat-sidenav #sidenav mode="side" opened>
+            <mat-tab-group color="accent">
+            <mat-tab label="Active">
+                <mat-nav-list style="margin-bottom:75px;">
+                    <mat-list-item *ngFor="let order of orderList" (click)="onSelect(order.externalOrderId)">
+                        <mat-icon mat-list-icon>shopping_cart</mat-icon>
+                        <h4 mat-line>{{order.primaryCustomerFirstName}} {{order.primaryCustomerLastName}} - {{order.externalOrderId}}</h4>
+                        <p mat-line><mat-icon class="dc-icon-small">access_time</mat-icon>{{order.scheduledDeliveryTimestamp | date}} </p>
+                    </mat-list-item>
+                </mat-nav-list>
+            </mat-tab>
+            <mat-tab label="Closed">
                 Closed Orders
-            </md-tab>
-            </md-tab-group>
-        </md-sidenav>
+            </mat-tab>
+            </mat-tab-group>
+        </mat-sidenav>
         <div  style="margin-bottom:75px;">
             <order-details  [orderId]="orderId"></order-details>
         </div>
-      </md-sidenav-container> 
+      </mat-sidenav-container> 
 
-      <button md-fab color="accent" class="sidebar-fab" (click)="sidenav.toggle()">
-         <md-icon>menu</md-icon>
+      <button mat-fab color="accent" class="sidebar-fab" (click)="sidenav.toggle()">
+         <mat-icon>menu</mat-icon>
       </button>
 
 
 <span *ngIf="dataLoading">
-    <md-progress-bar mode="indeterminate" fxFlexLayout='row' style='position:absolute;bottom:0;'></md-progress-bar>
+    <mat-progress-bar mode="indeterminate" fxFlexLayout='row' style='position:absolute;bottom:0;'></mat-progress-bar>
 </span> 

@@ -14,7 +14,7 @@ export class Package{
     actualReceivingLocationNumber: number;
     storePutawayLocationId: string;
     module: number;
-    productList: Array<any>;
+    productList: Array<Product>;
 
     constructor(pkg: Package){
         this.packageId = pkg.packageId;
@@ -26,7 +26,7 @@ export class Package{
         this.packageDestinationLocationNumber = pkg.packageDestinationLocationNumber;
         this.actualReceivingLocationNumber = pkg.actualReceivingLocationNumber;
         this.storePutawayLocationId = pkg.storePutawayLocationId;
-        this.productList = pkg.productList;
+        this.productList = Product.returnProducts(pkg.productList);
     }
 
     static returnPackages(jsonArray: Array<Package>){
