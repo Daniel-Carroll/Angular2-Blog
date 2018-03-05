@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router'
 
-import {BlogPostService} from '../../shared/services/blog-post/blog-post.service'
+import {ArticleService} from '../../shared/services/articles/articles.service'
 
 @Component({
   selector: 'blog-details',
   templateUrl: './blog-post-details.component.html',
-  providers: [BlogPostService],
+  providers: [ArticleService],
   styleUrls: ['./blog-post-details.component.css']
 })
 export class BlogDetailsComponent implements OnInit{
@@ -15,7 +15,7 @@ export class BlogDetailsComponent implements OnInit{
   errorMessage: string;
   blogPost:any;
 
-  constructor(private blogService: BlogPostService,
+  constructor(private articleService: ArticleService,
                route: ActivatedRoute ){
                    //the defacto way to retrive a parameter from a route
                    this.postId = route.snapshot.params['id']
@@ -27,7 +27,7 @@ export class BlogDetailsComponent implements OnInit{
 
   getBlogPostById(){
     this.dataLoading = true;
-    this.blogService.getBlogPostById(this.postId)
+    this.articleService.getArticlesById(this.postId)
             .subscribe(
               data => {
                 this.blogPost = data

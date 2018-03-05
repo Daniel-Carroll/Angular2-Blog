@@ -7,22 +7,30 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class BlogPostService{
-    private BlogUrl = 'https://trash-server.herokuapp.com/blog_api/api/posts';
+export class ArticleService{
+    private BaseUrl = 'http://localhost:5000/api';
 
     constructor (private http:Http){}
 
     //returns array of blog posts from server
-    getBlogPosts(): Observable<any[]>{
-        return this.http.get(this.BlogUrl)
+    getAllArticles(): Observable<any[]>{
+        return this.http.get(this.BaseUrl + '/articles')
                 .map(this.extractData)
                 .catch(this.handleError)
     }
 
-    getBlogPostById(postId): Observable<any>{
-      return this.http.get(this.BlogUrl + '/' + postId)
+    getArticlesById(postId): Observable<any>{
+      return this.http.get(this.BaseUrl + '/articles/' + postId)
                 .map(this.extractData)
                 .catch(this.handleError)
+    }
+
+    postArticle(article): Promise<any>{
+      return this.http.post(this.BaseUrl + "articles", article)
+        .toPromise()
+        .then(response => response.json())
+        .then(this.handleError)
+
     }
 
     private extractData(res: Response) {

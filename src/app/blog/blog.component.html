@@ -1,25 +1,25 @@
-<div class="dc-content">
+<div class="dc-content" *ngIf="articles">
     <div fxLayoutWrap>
-            <div fxFlex="50" *ngFor="let post of blogPosts">
-                    <md-card class="dc-card">
-                        <md-card-header>
-                            <md-card-title>{{post.name}}</md-card-title>
-                            <md-card-subtitle>{{post.description}}</md-card-subtitle>
-                        </md-card-header>
-                        <md-card-content>
-                            <p><md-icon class="dc-icon-small">access_time</md-icon>{{post.date | date}} by {{post.user}}</p>
+            <div fxFlex="100" *ngFor="let post of articles.articles">
+                    <mat-card class="dc-card">
+                        <mat-card-header>
+                            <mat-card-title>{{post.title}}</mat-card-title>
+                            <mat-card-subtitle>{{post.subtitle}}</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p><mat-icon class="dc-icon-small">access_time</mat-icon>{{post.createdAt | date}} by {{post.user[0].username}}</p>
                             <p></p>
-                        </md-card-content>
-                        <md-card-actions style="border-top:solid #e0e0e0 1px">
-                            <button md-button (click)="onSelect(post._id)">READ MORE</button>
-                        </md-card-actions>
-                    </md-card>
+                        </mat-card-content>
+                        <mat-card-actions style="border-top:solid #e0e0e0 1px">
+                            <button mat-button (click)="onSelect(post.id)">READ MORE</button>
+                        </mat-card-actions>
+                    </mat-card>
             </div>
     </div>
 </div>
 
 <span *ngIf="dataLoading">
-    <md-progress-bar mode="indeterminate" fxFlexLayout='row' style='position:absolute;bottom:0;'></md-progress-bar>
+    <mat-progress-bar mode="indeterminate" fxFlexLayout='row' style='position:absolute;bottom:0;'></mat-progress-bar>
 </span>
 
 

@@ -1,0 +1,35 @@
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+    // Define the default theme (same as the example above).
+$fast-app-primary: mat-palette($mat-blue, 800);
+$fast-app-accent: mat-palette($mat-red, 700);
+
+// The warn palette is optional (defaults to red).
+
+
+$fast-app-theme: mat-light-theme($fast-app-primary, $fast-app-accent);
+
+
+// Include the default theme styles.
+@include angular-material-theme($fast-app-theme);
+
+
+.dark-theme{
+    //Dark Theme 
+//$dark-primary: mat-palette($mat-deep-purple, 500);
+//$dark-accent: mat-palette($mat-deep-orange);
+$dark-warn: mat-palette($mat-red);
+
+$dark-primary: mat-palette($mat-red, 700);
+$dark-accent: mat-palette($mat-blue, 800);
+
+$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+@include angular-material-theme($dark-theme);
+}

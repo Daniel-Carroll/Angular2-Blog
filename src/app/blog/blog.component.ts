@@ -1,38 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
 
-import {BlogPostService} from '../shared/services/blog-post/blog-post.service'
+import {ArticleService} from '../shared/services/articles/articles.service'
 
 @Component({
   selector: 'blog',
   templateUrl: './blog.component.html',
-  providers: [BlogPostService],
+  providers: [ArticleService],
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit{
   dataLoading:boolean;
   errorMessage: string;
-  blogPosts:any[];
+  articles:any[];
 
-  constructor(private blogService: BlogPostService,
+  constructor(private articleService: ArticleService,
               private router: Router){}
 
   ngOnInit(){
-    this.getBlogPosts();
+    this.getArticles();
   }
 
   onSelect(postId){
       this.router.navigate(['/post', postId])
   }
 
-  getBlogPosts(){
+  getArticles(){
+    console.log("Getting articles...")
     this.dataLoading = true;
-    this.blogService.getBlogPosts()
+    this.articleService.getAllArticles()
             .subscribe(
               data => {
-                this.blogPosts = data
+                this.articles = data
                 this.dataLoading=false;
-                console.log(this.blogPosts)
+                console.log(this.articles)
               },
               error =>  {
                 this.errorMessage = <any>error;
