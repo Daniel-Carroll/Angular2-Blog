@@ -9,5 +9,5 @@ app.get('*', (req, res) => {
   res.sendFile(`index.html`, { root: publicweb });
 });
 
-const port = process.env.PORT || '443';
+const port = process.env.SERVER_PORT || '443';
 app.listen(port, () => console.log(`API running on localhost:${port}`));
