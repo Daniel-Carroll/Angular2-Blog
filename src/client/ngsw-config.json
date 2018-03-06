@@ -8,6 +8,9 @@
         "/favicon.ico",
         "/index.html"
       ],
+      "urls": [
+        "https://fonts.googleapis.com/**"
+      ],
       "versionedFiles": [
         "/*.bundle.css",
         "/*.bundle.js",

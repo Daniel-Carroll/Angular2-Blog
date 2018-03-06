@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/app",
+    "module": "es2015",
+    "baseUrl": "./",
+    "types": []
+  },
+  "include":[
+    "../../node_modules/ngx-quill/src/quill.module.ts",
+    "../../node_modules/ngx-quill/src/quill-editor.component.ts",
+    "**/*.ts"
+  ],
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}
